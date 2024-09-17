@@ -22,3 +22,4 @@ def test_load():
     s = 7
     c = Card.load(s)
     assert c == Card(55, 7)
+
