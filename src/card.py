@@ -17,11 +17,14 @@ class Card:
         return f'{self.num}|{self.shtraf}'
     def save(self):
         return repr(self)
-    
+    def __eq__(self, other):
+        return self.num == other.num and self.shtraf == other.shtraf
 
     def load(number: str):
         """From 3 to Card(30, 3)."""
         number = number.split('|')
         return Card(num=int(number[0]), shtraf=int(number[1]))
-
+    def can_play_on(self, other: Self) -> bool:
+        """Можно ли играть карту self на карту other."""
+        return self.num == other.num or self.shtraf == other.shtraf
     
