@@ -8,12 +8,12 @@ def test_init():
     assert c.shtraf == 3
 def test_save():
     c = Card(30, 3)
-    assert repr(c) == 3
-    assert c.save() == 3
+    assert repr(c) == '30|3'
+    assert c.save() == '30|3'
 
     c = Card(55, 7)
-    assert repr(c) == 7
-    assert c.save() == 7
+    assert repr(c) == '55|7'
+    assert c.save() == '55|7'
 
 def test_load():
     s = 3

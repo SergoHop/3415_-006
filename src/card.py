@@ -14,7 +14,7 @@ class Card:
         self.num = num
         self.shtraf = shtraf
     def __repr__(self):
-        return f'{self.shtraf}{self.shtraf}'
+        return f'{self.num}|{self.shtraf}'
     def save(self):
         return repr(self)
     
