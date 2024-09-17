@@ -19,8 +19,9 @@ class Card:
         return repr(self)
     
 
-    def load(number: int):
+    def load(number: str):
         """From 3 to Card(30, 3)."""
-        return Card(num=number[0], shtraf=int(number[1]))
+        number = number.split('|')
+        return Card(num=int(number[0]), shtraf=int(number[1]))
 
     

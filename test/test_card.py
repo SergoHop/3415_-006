@@ -16,10 +16,10 @@ def test_save():
     assert c.save() == '55|7'
 
 def test_load():
-    s = 3
+    s = '30|3'
     c = Card.load(s)
-    assert c == Card(30, 3)
-    s = 7
+    assert c == Card(30,3)
+    s = '55|7'
     c = Card.load(s)
-    assert c == Card(55, 7)
+    assert c == Card(55,7)
 
