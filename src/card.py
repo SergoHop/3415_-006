@@ -26,5 +26,5 @@ class Card:
         return Card(num=int(number[0]), shtraf=int(number[1]))
     def can_play_on(self, other: Self) -> bool:
         """Можно ли играть карту self на карту other."""
-        return self.num == other.num or self.shtraf == other.shtraf
+        return self.num < other.num
     

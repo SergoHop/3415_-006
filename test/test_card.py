@@ -39,8 +39,8 @@ def test_play_on():
     c3 = Card.load('30|3')
     c4 = Card.load('40|3')
 
-    assert c1.can_play_on(c1)
-    assert c2.can_play_on(c1)
+    assert not c1.can_play_on(c1)
+    assert not c2.can_play_on(c1)
     assert c1.can_play_on(c2)
-    assert c3.can_play_on(c1)
-    assert c4.can_play_on(c1)
+    assert not c3.can_play_on(c1)
+    assert not c4.can_play_on(c1)
