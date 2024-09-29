@@ -3,44 +3,51 @@ import pytest
 from src.card import Card
 
 def test_init():
-    c = Card(30, 3)
+    c = Card(30)
     assert c.num == 30
-    assert c.shtraf == 3
+    
 def test_save():
-    c = Card(30, 3)
-    assert repr(c) == '30|3'
-    assert c.save() == '30|3'
+    c = Card(30)
+    assert repr(c) == '30'
+    assert c.save() == '30'
 
-    c = Card(55, 7)
-    assert repr(c) == '55|7'
-    assert c.save() == '55|7'
+    c = Card(55)
+    assert repr(c) == '55'
+    assert c.save() == '55'
 
 def test_load():
-    s = '30|3'
+    s = '30'
     c = Card.load(s)
-    assert c == Card(30,3)
-    s = '55|7'
+    assert c == Card(30)
+    s = '55'
     c = Card.load(s)
-    assert c == Card(55,7)
+    assert c == Card(55)
 def test_eq():
-    c1 = Card(30, 3)
-    c2 = Card(30, 3)
-    c3 = Card(20, 3)
-    c4 = Card(10, 3)
-    c5 = Card(55, 1)
+    c1 = Card(30)
+    c2 = Card(30)
+    c3 = Card(20)
+    c4 = Card(10)
+    c5 = Card(55)
 
     assert c1 == c2
     assert c1 != c3
     assert c1 != c4
     assert c1 != c5
 def test_play_on():
-    c1 = Card.load('10|3')
-    c2 = Card.load('20|3')
-    c3 = Card.load('30|3')
-    c4 = Card.load('40|3')
+    c1 = Card.load('10')
+    c2 = Card.load('20')
+    c3 = Card.load('30')
+    c4 = Card.load('40')
 
     assert not c1.can_play_on(c1)
     assert not c2.can_play_on(c1)
     assert c1.can_play_on(c2)
     assert not c3.can_play_on(c1)
     assert not c4.can_play_on(c1)
+def test_score():
+    c = Card(70)
+    assert 3 == c.score()
+    c = Card(55)
+    assert 7 == c.score()
+    c = Card(11)
+    assert 5 == c.score()
