@@ -38,3 +38,8 @@ class Card:
             return 2
         else:
             return 1
+    def all_cards(numbers: None | list[int] = None):
+        if numbers is None:
+            numbers = Card.NUMBERS
+        cards = [Card(number=num) for num in numbers]
+        return cards

@@ -15,6 +15,11 @@ def test_save():
     assert repr(c) == '55'
     assert c.save() == '55'
 
+def test_repr():
+    c = Card(55)
+    assert c.__repr__() == '55'
+    assert Card.__repr__(Card(30)) == '30'
+
 def test_load():
     s = '30'
     c = Card.load(s)
@@ -51,3 +56,4 @@ def test_score():
     assert 7 == c.score()
     c = Card(11)
     assert 5 == c.score()
+
