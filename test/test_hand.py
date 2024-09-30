@@ -48,5 +48,8 @@ def test_remove_card():
     h.remove_card(c)
     assert repr(h) == '10 55'
 
+def test_score():
+    h = Hand.load('10 20 55')
+    assert h.score() == 13
    
 

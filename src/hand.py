@@ -29,5 +29,6 @@ class Hand:
     def remove_card(self, card: Card):
         self.cards.remove(card)
 
-    
+    def score(self) -> int:
+        return sum(c.score() for c in self.cards)
     
