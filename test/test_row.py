@@ -42,19 +42,27 @@ def test_max_lengh():
     r.add_card(Card(55))
     assert r.has_max_lengh() == True
 
-    r.add_card(Card(55))
+    r.add_card(Card(77))
     assert r.has_max_lengh() == False
 
 def test_truncate():
     r = Row()
     r.add_card(Card(55))
+    assert r.truncate() == 7
     r.truncate()
     assert r.cards == []
-
-def test_can_play_on():
+                                                                        
+def test_can_play():
     r = Row()
-    assert r.can_play(Card(55)) == True
+    assert r.can_play(Card(1))
 
-    r.add_card(Card(10))
-    assert r.can_play(Card(3)) == False  
-    assert r.can_play(Card(30)) == True 
+    r.add_card(Card(60))
+    assert not r.can_play(Card(30))
+    assert r.can_play(Card(70))
+
+    r.add_card(Card(70))
+
+    assert not r.can_play(Card(69))
+    assert r.can_play(Card(100))
+
+    

@@ -45,10 +45,10 @@ def test_play_on():
     c4 = Card.load('40')
 
     assert not c1.can_play_on(c1)
-    assert not c2.can_play_on(c1)
-    assert c1.can_play_on(c2)
-    assert not c3.can_play_on(c1)
-    assert not c4.can_play_on(c1)
+    assert c2.can_play_on(c1)
+    assert c3.can_play_on(c1)
+    assert c4.can_play_on(c1)
+
 def test_score():
     c = Card(70)
     assert 3 == c.score()

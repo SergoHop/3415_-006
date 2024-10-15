@@ -26,7 +26,8 @@ class Card:
     
     def can_play_on(self, other: Self) -> bool:
         """Можно ли играть карту self на карту other."""
-        return self.num < other.num
+        return self.num > other.num
+    
     def score(self) -> int:
         if self.num == 55:
             return 7
