@@ -22,15 +22,7 @@ class Row:
         return summa
 
     def can_play(self, card: Card) -> bool:
-        if not self.cards:
-            self.cards.append(card)
-            return True
-        else:
-            if card.can_play_on(self.cards[-1]):
-                self.cards.append(card)
-                return True
-            return False
-        
+        return not self.cards or card.can_play_on(self.cards[-1])
         
                 
 
