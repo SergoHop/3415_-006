@@ -29,3 +29,16 @@ class Table:
         rowm = min(rowi, key=lambda r: abs(card.num - r.cards[-1].num))
         rowm.add_card(card)
         return True
+
+    def __getitem__(self, item):
+        return self.rows[item]
+    
+    def save(self) -> str:
+        return json.dumps({f"row{i + 1}": self.rows[i].save() for i in range(len(self.rows))})
+    
+    @classmethod
+    def load(cls, rowstr: dict):
+        table = cls()
+        for rowkey, cardstr in rowstr.items():
+            table.rows[int(rowkey[-1])-1] = Row.load(cardstr)
+        return table

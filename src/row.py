@@ -24,6 +24,16 @@ class Row:
     def can_play(self, card: Card) -> bool:
         return not self.cards or card.can_play_on(self.cards[-1])
         
+    def save(self) -> str:
+        return ' '.join(card.save() for card in self.cards)
+    
+    @staticmethod
+    def load(data: str) -> 'Row':
+        row = Row()
+        spcards = data.split(' ')
+        for card in spcards:
+            row.add_card(Card.load(card))
+        return row
                 
 
             
