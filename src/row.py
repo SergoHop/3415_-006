@@ -7,6 +7,9 @@ class Row:
     def __init__(self):
         self.cards: list[Card] = []
 
+    def __eq__(self, other):
+        return self.cards == other.cards
+
     def __repr__(self):
         return ' '.join(repr(card) for card in self.cards)
 

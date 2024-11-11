@@ -47,12 +47,20 @@ def test_load():
     assert d == expected_deck
 
 def test_draw_card():
-   
-     
-    d = Deck(cards)
-    
-    assert d.draw_card() == Card(10)
-    assert d == Deck([Card(20), Card(55)])
+    d = Deck.load('10 12 55')
+    d1 = Deck.load('10 12')
+
+    assert d.draw_card() == Card.load('55')
+    assert d == d1
+    assert len(d.cards) == 2
+
+    assert d.draw_card() == Card.load('12')
+    assert d != d1
+    assert len(d.cards) == 1
+
+    assert d.draw_card() == Card.load('10')
+    assert len(d.cards) == 0
+
 
 def test_shuffle():
     random.seed(2)
