@@ -246,7 +246,7 @@ class GameServer:
 
 
 def __main__():
-    load_from_file = False
+    load_from_file = True
     if load_from_file:
         server = GameServer.load_game("korova.json")
     else:
@@ -255,4 +255,6 @@ def __main__():
 
 
 if __name__ == "__main__":
+    import random
+    random.seed(2)
     __main__()

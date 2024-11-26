@@ -1,7 +1,7 @@
 import random
 
-from src.card import Card
-from src.deck import Deck
+from card import Card
+from deck import Deck
 
 cards = [Card(10), Card(20), Card(55)]
 
