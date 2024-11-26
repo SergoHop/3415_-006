@@ -1,7 +1,7 @@
 import random
 import typing
 
-from src.card import Card
+from card import Card
 
 class Deck:
     def __init__(self, cards: None | list[Card]):

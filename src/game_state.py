@@ -1,7 +1,7 @@
-from src.card import Card
-from src.deck import Deck
-from src.player import Player
-from src.table import Table
+from card import Card
+from deck import Deck
+from player import Player
+from table import Table
 
 class GameState:
     """{

@@ -1,5 +1,5 @@
 import typing
-from src.card import Card
+from card import Card
 
 class Hand:
     def __init__(self, cards: list[Card] = None):
@@ -10,13 +10,18 @@ class Hand:
     def __repr__(self):
         return self.save()
     
+    def __str__(self):
+        return ' '.join(repr(card) + f"({card.score()})" for card in self.cards)
+
     def __eq__(self, other):
         if isinstance(other, str):
             other = Hand.load(other)
         return self.cards == other.cards
     
     def save(self) -> str:
-        return ' '.join(card.save() for card in self.cards)
+        scards = [c.save() for c in self.cards]
+        s = ' '.join(scards)
+        return s
     
     @classmethod
     def load(cls, text: str) -> typing.Self:

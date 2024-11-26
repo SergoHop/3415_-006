@@ -1,6 +1,6 @@
 import json
 import typing
-from src.hand import Hand
+from hand import Hand
 
 class Player:
     def __init__(self, name: str, hand: Hand, score: int = 0):
@@ -18,9 +18,12 @@ class Player:
             other = self.load(other)
         return self.name == other.name and self.score == other.score and self.hand == other.hand
 
-    def loser(self):
-        '''Проверка на проигрыш игрока'''
-        return self.score >= 66
+    def __hash__(self):
+        return hash(self.name)
+
+    # def loser(self):
+    #     '''Проверка на проигрыш игрока'''
+    #     return self.score >= 66
 
     def save(self) -> dict:
         return {'name': self.name,

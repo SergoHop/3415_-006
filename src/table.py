@@ -1,6 +1,6 @@
 import json
-from src.card import Card
-from src.row import Row
+from card import Card
+from row import Row
 
 class Table:
     def __init__(self):

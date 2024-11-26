@@ -1,4 +1,4 @@
-from src.card import Card
+from card import Card
 
 class Row:
 
@@ -9,6 +9,9 @@ class Row:
 
     def __eq__(self, other):
         return self.cards == other.cards
+    
+    def __str__(self):
+        return ' '.join(repr(card)+f"({card.score()})" for card in self.cards)
 
     def __repr__(self):
         return ' '.join(repr(card) for card in self.cards)
