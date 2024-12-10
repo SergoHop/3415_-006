@@ -149,6 +149,7 @@ class GameServer:
 
 
     def deal_cards_phase(self):
+        # раздаем карты игрокам
         for p in self.game_state.players: 
             for _ in range(self.INITIAL_HAND_SIZE):
                 p.hand.add_card(self.game_state.deck.draw_card())
@@ -157,6 +158,7 @@ class GameServer:
 
 
     def display_table_state(self):
+        # отображение состояние стола
         self.stroke_number += 1
         if self.stroke_number <= self.INITIAL_HAND_SIZE:
             print(f"\nХОД {self.stroke_number}\nСостояние стола:\n"f"{self.game_state.table} \n\nИгроки выбирают карту")
@@ -166,7 +168,7 @@ class GameServer:
 
 
     def choose_card_phase(self) -> GamePhase: 
-
+        # игроки выбирают карты
         current_player = self.game_state.current_player()
         print(f"Ход игрока: {current_player.name}({current_player.score})")  
 
@@ -176,8 +178,8 @@ class GameServer:
             
             self.chosen_cards[current_player] = card
 
-        if len(self.chosen_cards) == len(self.player_types):
-            return GamePhase.PLACE_CARD
+        if len(self.chosen_cards) == len(self.player_types): # пока все игроки не выберут карты
+            return GamePhase.PLACE_CARD # переход к размещению карт на стол
         else:
             return GamePhase.NEXT_PLAYER
 
@@ -246,9 +248,10 @@ class GameServer:
 
 
 def __main__():
-    load_from_file = True
+    load_from_file = False
     if load_from_file:
-        server = GameServer.load_game("korova.json")
+        filename = Path(__file__).parent / "korova.json"
+        server = GameServer.load_game(filename)
     else:
         server = GameServer.new_game(GameServer.get_players())
     server.run()

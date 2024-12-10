@@ -11,6 +11,7 @@ class Bot(PlayerInteraction):
     @classmethod
     def choose_card(cls, hand: Hand, table: Table, hand_counts: list[int] | None = None) -> Card:
         """Выбор карты ботом и ввод"""
+        #print(hand)
         chosen_card = random.choice(hand.cards)
         return chosen_card
     

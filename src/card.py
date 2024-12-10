@@ -17,9 +17,13 @@ class Card:
     def save(self):
         return repr(self)
     
+    def __lt__(self, other):
+        return self.num < other.num
+
     def __eq__(self, other):
         return self.num == other.num
-
+    
+    @staticmethod
     def load(text: str):
         """From 3 to Card(30, 3)."""
         return Card(num=int(text))

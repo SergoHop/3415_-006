@@ -37,3 +37,5 @@ class Hand:
     def score(self) -> int:
         return sum(c.score() for c in self.cards)
     
+    # def __len__(self):
+    #     return len(self.cards)

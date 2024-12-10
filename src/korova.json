@@ -4,19 +4,20 @@
     "row1": "1",
     "row2": "2",
     "row3": "3",
-    "row4": "4 5 6 7 8"
+    "row4": "4 5 6 7"
     },
+    "deck": "",
     "current_player_index": 0,
     "players": [
       {
         "name": "Sergo",
-        "hand": "9 10",
+        "hand": "9 10 ",
         "score":0,
         "kind": "Bot"
       },
       {
         "name": "Bot",
-        "hand": "11 12",
+        "hand": "11 12 ",
         "score":0,
         "kind": "Bot"
   
