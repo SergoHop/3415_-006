@@ -22,7 +22,7 @@ class Row:
     def has_max_lengh(self) -> bool:
         return len(self.cards) == self.mx
 
-    def truncate(self) -> int:#очистка
+    def truncate(self) -> int:
         summa = sum(c.score() for c in self.cards)
         self.cards.clear()
         return summa

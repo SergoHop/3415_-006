@@ -202,8 +202,9 @@ class GameServer:
         for player, card in sorted(self.chosen_cards.items(), key=lambda x: x[1].num):
             print(f'{player.name}({player.score}): добавление карты {card}')
             try:
-                try_play = self.game_state.play_card(card, player)
+                try_play, x = self.game_state.play_card(card, player)
                 if try_play:
+                    player.score += x
                     print(f'Карта игрока {player.name}({player.score}) добавлена в один из рядов\n')
                 else:
                     print(f"Карту игрока {player.name}({player.score}) невозможно добавить на стол\n")

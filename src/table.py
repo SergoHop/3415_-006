@@ -23,15 +23,17 @@ class Table:
             if row.can_play(card):
                 good_rows.append(row)
         if not good_rows:#Если ни один ряд не подходит
-            return False
+            return False, 0
         
         best_row = min(good_rows, key=lambda r: abs(card.num - r.cards[-1].num))#Ряд с наименьшей разницей
+        adscore = 0
         if len(best_row.cards) == Row.mx - 1:#Если карта шестая в ряду
             print(f'Игрок забрал ряд {self.rows.index(best_row) + 1}')
-            best_row.truncate()
+            adscore = best_row.truncate()
+
 
         best_row.add_card(card)#Шестая карта становится первой в ряду
-        return True
+        return True, adscore
 
     def __getitem__(self, item):
         return self.rows[item]
