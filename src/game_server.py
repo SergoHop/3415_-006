@@ -185,7 +185,8 @@ class GameServer:
 
 
     def next_player_phase(self) -> GamePhase:
-        if self.stroke_number <= self.INITIAL_HAND_SIZE:
+        current_player = self.game_state.current_player()
+        if len(current_player.hand) != 0:
             self.game_state.next_player()
             return GamePhase.CHOOSE_CARD
         else:
@@ -248,7 +249,7 @@ class GameServer:
 
 
 def __main__():
-    load_from_file = False
+    load_from_file = True
     if load_from_file:
         filename = Path(__file__).parent / "korova.json"
         server = GameServer.load_game(filename)
